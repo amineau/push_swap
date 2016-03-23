@@ -6,13 +6,13 @@
 /*   By: amineau <amineau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/22 17:28:34 by amineau           #+#    #+#             */
-/*   Updated: 2016/03/23 09:45:58 by amineau          ###   ########.fr       */
+/*   Updated: 2016/03/23 13:51:02 by amineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-char	*ft_swap(t_pile **begin, char c)
+void	ft_swap(t_pile **begin, char c, char **ret)
 {
 	t_pile	*tmp;
 
@@ -23,12 +23,12 @@ char	*ft_swap(t_pile **begin, char c)
 		tmp->next = tmp->next->next;
 		(*begin)->next = tmp;
 	}
-	return (ft_straddc(ft_strdup("s"), c));
+	ft_retour(ret, "s", c);
 }
 
-char	*ft_swap_all(t_pile **a, t_pile **b)
+void	ft_swap_all(t_pile **a, t_pile **b, char **ret)
 {
-	ft_swap(a, 'a');
-	ft_swap(b, 'b');
-	return (ft_strdup("ss"));
+	ft_swap(a, 'a', NULL);
+	ft_swap(b, 'b', NULL);
+	ft_retour(ret, "ss", 0);
 }

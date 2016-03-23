@@ -1,44 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list.c                                          :+:      :+:    :+:   */
+/*   ft_retour.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amineau <amineau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/03/22 16:13:16 by amineau           #+#    #+#             */
-/*   Updated: 2016/03/23 13:41:11 by amineau          ###   ########.fr       */
+/*   Created: 2016/03/23 13:41:42 by amineau           #+#    #+#             */
+/*   Updated: 2016/03/23 16:52:06 by amineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_pile	*ft_lst_new(int nb)
+void	ft_retour(char **ret, char *ope, char pile)
 {
-	t_pile	*lst;
-
-	lst = (t_pile*)ft_memalloc(sizeof(t_pile));
-	lst->nb = nb;
-	lst->next = NULL;
-	return (lst);
-}
-
-void	ft_lst_add_start(t_pile **begin, t_pile *lst)
-{
-	lst->next = *begin;
-	*begin = lst;
-}
-
-void	ft_lst_add_end(t_pile **begin, t_pile *lst)
-{
-	t_pile	*tmp;
-
-	tmp = *begin;
-	if (!tmp)
-		*begin = lst;
-	else
+	if (ret)
 	{
-		while (tmp->next)
-			tmp = tmp->next;
-		tmp->next = lst;
+		if (*ret)
+			*ret = ft_strclnjoin(ft_straddc(*ret, ' '),
+					ft_straddc(ft_strdup(ope), pile));
+		else
+			*ret = ft_straddc(ft_strdup(ope), pile);
 	}
 }

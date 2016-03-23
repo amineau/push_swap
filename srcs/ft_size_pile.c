@@ -1,44 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list.c                                          :+:      :+:    :+:   */
+/*   ft_size_pile.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amineau <amineau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/03/22 16:13:16 by amineau           #+#    #+#             */
-/*   Updated: 2016/03/23 13:41:11 by amineau          ###   ########.fr       */
+/*   Created: 2016/03/23 17:38:38 by amineau           #+#    #+#             */
+/*   Updated: 2016/03/23 18:36:48 by amineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_pile	*ft_lst_new(int nb)
-{
-	t_pile	*lst;
-
-	lst = (t_pile*)ft_memalloc(sizeof(t_pile));
-	lst->nb = nb;
-	lst->next = NULL;
-	return (lst);
-}
-
-void	ft_lst_add_start(t_pile **begin, t_pile *lst)
-{
-	lst->next = *begin;
-	*begin = lst;
-}
-
-void	ft_lst_add_end(t_pile **begin, t_pile *lst)
+int	ft_size_pile(t_pile **begin)
 {
 	t_pile	*tmp;
+	int		cnt;
 
+	cnt = 0;
 	tmp = *begin;
-	if (!tmp)
-		*begin = lst;
-	else
+	while (tmp)
 	{
-		while (tmp->next)
-			tmp = tmp->next;
-		tmp->next = lst;
+		tmp = tmp->next;
+		cnt++;
 	}
+	return (cnt);
 }

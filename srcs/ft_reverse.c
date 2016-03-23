@@ -6,35 +6,30 @@
 /*   By: amineau <amineau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/22 17:50:07 by amineau           #+#    #+#             */
-/*   Updated: 2016/03/23 11:11:47 by amineau          ###   ########.fr       */
+/*   Updated: 2016/03/23 17:38:16 by amineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-char	*ft_reverse(t_pile **begin, char c)
+void	ft_reverse(t_pile **begin, char c, char **ret)
 {
-	t_pile	**new;
 	t_pile	*tmp;
-	t_pile	*tmp2;
 
-	new = (t_pile**)ft_memalloc(sizeof(t_pile*));
 	tmp = *begin;
-	while (tmp)
+	if (tmp && tmp->next)
 	{
-		tmp2 = tmp->next;
-		ft_lst_add_end(new, tmp);
-		tmp = tmp2;
-		ft_printf("%d\n", tmp->nb);
+		while (tmp->next->next)
+			tmp = tmp->next;
+		ft_lst_add_start(begin, tmp->next);
+		tmp->next = NULL;
 	}
-	free(begin);
-	begin = new;
-	return (ft_straddc(ft_strdup("rr"), c));
+	ft_retour(ret, "rr", c);
 }
 
-char	*ft_reverse_all(t_pile **a, t_pile **b)
+void	ft_reverse_all(t_pile **a, t_pile **b, char **ret)
 {
-	ft_reverse(a, 'a');
-	ft_reverse(b, 'b');
-	return (ft_strdup("rrr"));
+	ft_reverse(a, 'a', NULL);
+	ft_reverse(b, 'b', NULL);
+	ft_retour(ret, "rrr", 0);
 }

@@ -6,23 +6,25 @@
 /*   By: amineau <amineau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/22 15:25:16 by amineau           #+#    #+#             */
-/*   Updated: 2016/03/23 10:47:46 by amineau          ###   ########.fr       */
+/*   Updated: 2016/03/23 15:02:25 by amineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_exit(int a)
+void	ft_exit(int er)
 {
 	char	*str;
 
-	if (a == 1)
+	if (er == 1)
 		str = "arguments missing";
-	if (a == 2)
+	if (er == 2)
 		str = "arguments not decimals";
-	if (a == 3)
+	if (er == 3)
 		str = "one or more values are larger size of int";
-	ft_printf("%s\n",str);
+	if (er == 4)
+		str = "one or more twins";
+	ft_printf("--------------------------\n%s\n--------------------------\n",str);
 	exit(1);
 }
 
@@ -46,5 +48,24 @@ void	ft_check_error(int ac, char **str)
 		if (ft_atol(str[i]) > INT_MAX || ft_atol(str[i]) < -INT_MAX - 1)
 			ft_exit(3);
 		i++;
+	}
+}
+
+void	ft_check_double(t_pile **lst)
+{
+	t_pile	*tmp;
+	t_pile	*tmp2;
+
+	tmp = *lst;
+	while (tmp->next)
+	{
+		tmp2 = tmp->next;
+		while (tmp2)
+		{
+			if (tmp->nb == tmp2->nb)
+				ft_exit(4);
+			tmp2 = tmp2->next;
+		}
+		tmp = tmp->next;
 	}
 }
