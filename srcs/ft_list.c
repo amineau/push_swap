@@ -6,13 +6,13 @@
 /*   By: amineau <amineau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/22 16:13:16 by amineau           #+#    #+#             */
-/*   Updated: 2016/03/22 17:28:26 by amineau          ###   ########.fr       */
+/*   Updated: 2016/03/23 10:27:12 by amineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_pile	ft_lst_new(int nb)
+t_pile	*ft_lst_new(int nb)
 {
 	t_pile	*lst;
 
@@ -43,5 +43,6 @@ void	ft_lst_add_end(t_pile **begin, t_pile *lst)
 		while (tmp->next)
 			tmp = tmp->next;
 		tmp->next = lst;
+		lst->next = NULL;
 	}
 }
