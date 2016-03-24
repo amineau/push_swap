@@ -6,7 +6,7 @@
 /*   By: amineau <amineau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/23 16:59:26 by amineau           #+#    #+#             */
-/*   Updated: 2016/03/23 18:36:45 by amineau          ###   ########.fr       */
+/*   Updated: 2016/03/24 14:13:13 by amineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	ft_insertion(t_pile **a, t_pile **b, int nbr, char **ret)
 {
 	t_pile	*tmpa;
 	int		cnt;
+	int		head_pile;
 
 	tmpa = *a;
 	while (ft_size_pile(b) < nbr / 2)
@@ -29,6 +30,7 @@ void	ft_insertion(t_pile **a, t_pile **b, int nbr, char **ret)
 		}
 		if (tmpa->next)
 		{
+
 			if (cnt < nbr / 2)
 			{
 				while (cnt-- != 0)

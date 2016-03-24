@@ -6,7 +6,7 @@
 /*   By: amineau <amineau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/22 15:25:16 by amineau           #+#    #+#             */
-/*   Updated: 2016/03/23 15:02:25 by amineau          ###   ########.fr       */
+/*   Updated: 2016/03/24 14:13:11 by amineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	ft_exit(int er)
 void	ft_check_error(int ac, char **str)
 {
 	int	i;
-	int j;
+	int	j;
 
 	if (ac == 1)
 		ft_exit(1);
@@ -41,7 +41,7 @@ void	ft_check_error(int ac, char **str)
 		j = 0;
 		while (str[i][j])
 		{
-			if (!ft_isdigit(str[i][j]))
+			if (!ft_isdigit(str[i][j]) && str[i][j] != '-')
 				ft_exit(2);
 			j++;
 		}
