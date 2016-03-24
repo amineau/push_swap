@@ -6,15 +6,16 @@
 #    By: amineau <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/23 15:32:27 by amineau           #+#    #+#              #
-#    Updated: 2016/03/24 14:13:19 by amineau          ###   ########.fr        #
+#    Updated: 2016/03/24 18:09:05 by amineau          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME=push_swap
-CC = gcc 
+CC = gcc
 
 SRCS = main.c ft_error.c ft_list.c ft_swap.c ft_push.c ft_rotate.c ft_reverse.c\
-		ft_stockage.c ft_retour.c ft_insertion.c ft_size_pile.c
+		ft_stockage.c ft_retour.c ft_insertion.c ft_size_pile.c ft_display.c \
+		ft_flag.c
 
 LIBPATH = libft
 SPATH = srcs

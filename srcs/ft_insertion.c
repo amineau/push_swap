@@ -6,46 +6,56 @@
 /*   By: amineau <amineau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/23 16:59:26 by amineau           #+#    #+#             */
-/*   Updated: 2016/03/24 14:13:13 by amineau          ###   ########.fr       */
+/*   Updated: 2016/03/24 18:09:11 by amineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_insertion(t_pile **a, t_pile **b, int nbr, char **ret)
+void	ft_find_min(t_pile **begin, char **ret)
 {
-	t_pile	*tmpa;
+	t_pile	*tmp;
+	int		min;
+	int		pos;
 	int		cnt;
-	int		head_pile;
 
-	tmpa = *a;
-	while (ft_size_pile(b) < nbr / 2)
-	{
 	cnt = 1;
-	tmpa = *a;
-		while (tmpa->next && tmpa->nb < tmpa->next->nb)
+	tmp = (*begin)->next;
+	min = (*begin)->nb;
+	pos = 1;
+	while (tmp)
+	{
+		cnt++;
+		if (tmp->nb < min)
 		{
-			cnt++;
-			tmpa = tmpa->next;
+			pos = cnt;
+			min = tmp->nb;
 		}
-		if (tmpa->next)
-		{
+		tmp = tmp->next;
+	}
+	if (pos < cnt / 2)
+	{
+		while (pos-- != 1)
+			ft_rotate(begin, 'a', ret);
+	}
+	else if (cnt != 1)
+	{
+		while (cnt - pos++ != -1)
+			ft_reverse(begin, 'a', ret);
+	}
+}
 
-			if (cnt < nbr / 2)
-			{
-				while (cnt-- != 0)
-					ft_rotate(a, 'a', ret);
-				ft_push(b, a, 'b', ret);
-			}
-			else
-			{
-				cnt = nbr - cnt;
-				while (cnt-- != 0)
-					ft_reverse(a, 'a', ret);
-				ft_push(b, a, 'b', ret);
-			}
-		}
-		else
-			break;
+void	ft_selection(t_pile **a, t_pile **b, char **ret)
+{
+	while (*a)
+	{
+		ft_find_min(a, ret);
+		ft_push(b, a, 'b', ret);
+		ft_display(a, b, *ret);
+	}
+	while (*b)
+	{
+		ft_push(a, b, 'a', ret);
+		ft_display(a, b, *ret);
 	}
 }

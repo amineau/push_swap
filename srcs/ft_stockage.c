@@ -6,13 +6,13 @@
 /*   By: amineau <amineau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/23 09:36:44 by amineau           #+#    #+#             */
-/*   Updated: 2016/03/23 16:58:51 by amineau          ###   ########.fr       */
+/*   Updated: 2016/03/24 17:52:22 by amineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_stockage_pile(char **str, t_pile **begin)
+void	ft_stockage_pile(char **str, t_pile **begin)
 {
 	int i;
 
@@ -20,5 +20,4 @@ int	ft_stockage_pile(char **str, t_pile **begin)
 	while (str[i])
 		ft_lst_add_end(begin, ft_lst_new(ft_atoi(str[i++])));
 	ft_check_double(begin);
-	return (i);
 }
