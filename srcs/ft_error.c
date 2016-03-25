@@ -6,7 +6,7 @@
 /*   By: amineau <amineau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/22 15:25:16 by amineau           #+#    #+#             */
-/*   Updated: 2016/03/24 17:05:02 by amineau          ###   ########.fr       */
+/*   Updated: 2016/03/25 14:30:04 by amineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,20 +26,20 @@ void	ft_exit(int er, int flag)
 			str = "one or more values are larger size of int";
 		if (er == 4)
 			str = "one or more twins";
-		ft_printf("--------------------------\n%s\n--------------------------\n",str);
+		ft_putendl_fd("--------------------------", 2);
+		ft_putendl_fd(str, 2);
+		ft_putendl_fd("--------------------------\n", 2);
 	}
 	else
-		ft_printf("Error\n");
+		ft_putendl_fd("Error", 2);
 	exit(1);
 }
 
-void	ft_check_error(int ac, char **str, t_flag *f)
+void	ft_check_error(char **str, t_flag *f)
 {
 	int	i;
 	int	j;
 
-	if (ac == 1)
-		ft_exit(1, f->e);
 	i = 0;
 	while (str[i])
 	{

@@ -6,7 +6,7 @@
 /*   By: amineau <amineau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/24 17:05:10 by amineau           #+#    #+#             */
-/*   Updated: 2016/03/24 17:51:27 by amineau          ###   ########.fr       */
+/*   Updated: 2016/03/25 17:27:15 by amineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,28 +28,31 @@ int		ft_cnt_word(const char *s)
 	return (cnt);
 }
 
-void	ft_display(t_pile **a, t_pile **b, char *ret)
+void	ft_display(t_pile **a, t_pile **b, t_flag *f)
 {
 	t_pile	*tmp;
 
-	tmp = *a;
-	ft_printf("\n*******************************\na : ");
-	while (tmp)
+	if (f->v == 1)
 	{
-		ft_printf("%d", tmp->nb);
-		if (tmp->next)
-			ft_printf(" ");
-		tmp = tmp->next;
+		tmp = *a;
+		ft_printf("\n*******************************\na : ");
+		while (tmp)
+		{
+			ft_printf("%d", tmp->nb);
+			if (tmp->next)
+				ft_printf(" ");
+			tmp = tmp->next;
+		}
+		ft_printf("\n");
+		tmp = *b;
+		ft_printf("b : ");
+		while (tmp)
+		{
+			ft_printf("%d", tmp->nb);
+			if (tmp->next)
+				ft_printf(" ");
+			tmp = tmp->next;
+		}
+		ft_printf("\n%s\nNumber of operation : %d\n*******************************\n", f->ret, ft_cnt_word(f->ret));
 	}
-	ft_printf("\n");
-	tmp = *b;
-	ft_printf("b : ");
-	while (tmp)
-	{
-		ft_printf("%d", tmp->nb);
-		if (tmp->next)
-			ft_printf(" ");
-		tmp = tmp->next;
-	}
-	ft_printf("\n%s\nNumber of operation : %d\n*******************************\n", ret, ft_cnt_word(ret));
 }

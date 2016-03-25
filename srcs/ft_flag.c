@@ -6,7 +6,7 @@
 /*   By: amineau <amineau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/24 17:52:30 by amineau           #+#    #+#             */
-/*   Updated: 2016/03/24 18:09:03 by amineau          ###   ########.fr       */
+/*   Updated: 2016/03/25 15:03:22 by amineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	ft_initialize_flag(t_flag *f)
 	f->h = 0;
 	f->n = 0;
 	f->v = 0;
+	f->ret = NULL;
 }
 
 void	ft_check_char(t_flag *f, char c)
@@ -37,19 +38,25 @@ void	ft_check_char(t_flag *f, char c)
 		f->v = 1;
 }
 
-t_flag	*ft_flag(char **str)
+t_flag	*ft_flag(char **str, int ac)
 {
 	t_flag	*f;
 	int		j;
+	int		i;
 
+	if(ac == 1)
+		exit(1);
 	f = (t_flag*)ft_memalloc(sizeof(t_flag));
 	ft_initialize_flag(f);
-	while ((*str)[0] == '-' && !ft_isdigit((*str)[1]))
+	f->argv = 1;
+	i = 0;
+	while (str[i][0] == '-' && !ft_isdigit(str[i][1]))
 	{
 		j = 1;
-		while ((*str)[j])
-			ft_check_char(f, (*str)[j++]);
-				(*str)++;
+		while (str[i][j])
+			ft_check_char(f, str[i][j++]);
+		f->argv++;
+		i++;
 	}
 	return (f);
 }

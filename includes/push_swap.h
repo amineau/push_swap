@@ -6,7 +6,7 @@
 /*   By: amineau <amineau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/22 09:27:29 by amineau           #+#    #+#             */
-/*   Updated: 2016/03/24 18:09:08 by amineau          ###   ########.fr       */
+/*   Updated: 2016/03/25 19:26:24 by amineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,6 @@
 # include "libft.h"
 # include <limits.h>
 
-typedef struct	s_pile
-{
-	int				nb;
-	struct s_pile	*next;
-}				t_pile;
-
 typedef struct	s_flag
 {
 	int				n;
@@ -29,27 +23,39 @@ typedef struct	s_flag
 	int				v;
 	int				d;
 	int				e;
+	char			*ret;
+	int				argv;
 	struct s_flag	*next;
 }				t_flag;
 
-void	ft_check_error(int ac, char **str, t_flag *f);
+typedef struct	s_pile
+{
+	int				nb;
+	struct s_pile	*next;
+}				t_pile;
+
+void	ft_check_error(char **str, t_flag *f);
 void	ft_check_double(t_pile **lst, t_flag *f);
 void	ft_exit(int er, int flag);
 t_pile	*ft_lst_new(int nb);
 int		ft_size_pile(t_pile **begin);
-void	ft_retour(char **ret, char *ope, char pile);
+void	ft_retour(char **ret, char *ope);
 void	ft_lst_add_start(t_pile **begin, t_pile *lst);
 void	ft_lst_add_end(t_pile **begin, t_pile *lst);
 void	ft_stockage_pile(char **str, t_pile **begin, t_flag *f);
-void	ft_swap(t_pile **begin, char c, char **ret);
-void	ft_swap_all(t_pile **a, t_pile **b, char **ret);
-void	ft_push(t_pile **a, t_pile **b, char c, char **ret);
-void	ft_rotate(t_pile **begin, char c, char **ret);
-void	ft_rotate_all(t_pile **a, t_pile **b, char **ret);
-void	ft_reverse(t_pile **begin, char c, char **ret);
-void	ft_reverse_all(t_pile **a, t_pile **b, char **ret);
-void	ft_selection(t_pile **a, t_pile **b, char **ret);
-void	ft_display(t_pile **a, t_pile **b, char *ret);
-t_flag	*ft_flag(char **str);
+void	ft_swapa(t_pile **a, t_pile **b, t_flag *f);
+void	ft_swapb(t_pile **a, t_pile **b, t_flag *f);
+void	ft_swap_all(t_pile **a, t_pile **b, t_flag *f);
+void	ft_pusha(t_pile **a, t_pile **b, t_flag *f);
+void	ft_pushb(t_pile **a, t_pile **b, t_flag *f);
+void	ft_rotatea(t_pile **a, t_pile **b, t_flag *f);
+void	ft_rotateb(t_pile **a, t_pile **b, t_flag *f);
+void	ft_rotate_all(t_pile **a, t_pile **b, t_flag *f);
+void	ft_reversea(t_pile **a, t_pile **b, t_flag *f);
+void	ft_reverseb(t_pile **a, t_pile **b, t_flag *f);
+void	ft_reverse_all(t_pile **a, t_pile **b, t_flag *f);
+void	ft_selection(t_pile **a, t_pile **b, t_flag *f);
+void	ft_display(t_pile **a, t_pile **b, t_flag *f);
+t_flag	*ft_flag(char **str, int ac);
 
 #endif

@@ -6,30 +6,48 @@
 /*   By: amineau <amineau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/22 17:50:07 by amineau           #+#    #+#             */
-/*   Updated: 2016/03/23 17:38:16 by amineau          ###   ########.fr       */
+/*   Updated: 2016/03/25 15:37:23 by amineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_reverse(t_pile **begin, char c, char **ret)
+void	ft_reversea(t_pile **a, t_pile **b, t_flag *f)
 {
 	t_pile	*tmp;
 
-	tmp = *begin;
+	tmp = *a;
 	if (tmp && tmp->next)
 	{
 		while (tmp->next->next)
 			tmp = tmp->next;
-		ft_lst_add_start(begin, tmp->next);
+		ft_lst_add_start(a, tmp->next);
 		tmp->next = NULL;
 	}
-	ft_retour(ret, "rr", c);
+	ft_retour(&(f->ret), "rra");
+	ft_display(a, b, f);
 }
 
-void	ft_reverse_all(t_pile **a, t_pile **b, char **ret)
+void	ft_reverseb(t_pile **a, t_pile **b, t_flag *f)
 {
-	ft_reverse(a, 'a', NULL);
-	ft_reverse(b, 'b', NULL);
-	ft_retour(ret, "rrr", 0);
+	t_pile	*tmp;
+
+	tmp = *b;
+	if (tmp && tmp->next)
+	{
+		while (tmp->next->next)
+			tmp = tmp->next;
+		ft_lst_add_start(b, tmp->next);
+		tmp->next = NULL;
+	}
+	ft_retour(&(f->ret), "rrb");
+	ft_display(a, b, f);
+}
+
+void	ft_reverse_all(t_pile **a, t_pile **b, t_flag *f)
+{
+	ft_reversea(a, b, NULL);
+	ft_reverseb(a, b, NULL);
+	ft_retour(&(f->ret), "rrr");
+	ft_display(a, b, f);
 }
