@@ -24,7 +24,7 @@ int	main(int ac, char **av)
 	ft_check_error(ac, av, f);
 	a = (t_pile**)ft_memalloc(sizeof(t_pile*));
 	b = (t_pile**)ft_memalloc(sizeof(t_pile*));
-	ft_stockage_pile(&av[1], a);
+	ft_stockage_pile(&av[1], a, f);
 	ft_selection(a, b, &ret);
 
 	return (0);
