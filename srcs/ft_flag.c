@@ -12,29 +12,44 @@
 
 #include "push_swap.h"
 
-void	ft_initialize_flag(t_flag **f)
+void	ft_initialize_flag(t_flag *f)
 {
-	(*f)->d = 0;
-	(*f)->e = 0;
-	(*f)->h = 0;
-	(*f)->n = 0;
-	(*f)->v = 0;
+	f->d = 0;
+	f->e = 0;
+	f->h = 0;
+	f->n = 0;
+	f->v = 0;
+}
+
+void	ft_check_char(t_flag *f, char c)
+{
+	if (!ft_strchr(FLAG, c))
+		ft_exit(5, 0);	
+	else if (c == 'd')
+		f->d = 1;
+	else if (c == 'e')
+		f->e = 1;
+	else if (c == 'h')
+		f->h = 1;
+	else if (c == 'n')
+		f->n = 1;
+	else if (c == 'v')
+		f->v = 1;
 }
 
 t_flag	*ft_flag(char **str)
 {
 	t_flag	*f;
-	int		i;
 	int		j;
 
-	ft_initialize_flag(&f);
-	i = 0;
-	while (str[i][0] == '-' && !ft_isdigit(str[i][1]))
+	f = (t_flag*)ft_memalloc(sizeof(t_flag));
+	ft_initialize_flag(f);
+	while ((*str)[0] == '-' && !ft_isdigit((*str)[1]))
 	{
 		j = 1;
-		while (str[i][j])
-		{
-			if (ft_str)
-		}
+		while ((*str)[j])
+			ft_check_char(f, (*str)[j++]);
+				(*str)++;
 	}
+	return (f);
 }

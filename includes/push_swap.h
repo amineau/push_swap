@@ -32,14 +32,15 @@ typedef struct	s_flag
 	struct s_flag	*next;
 }				t_flag;
 
-void	ft_check_error(int ac, char **str);
-void	ft_check_double(t_pile **lst);
+void	ft_check_error(int ac, char **str, t_flag *f);
+void	ft_check_double(t_pile **lst, t_flag *f);
+void	ft_exit(int er, int flag);
 t_pile	*ft_lst_new(int nb);
 int		ft_size_pile(t_pile **begin);
 void	ft_retour(char **ret, char *ope, char pile);
 void	ft_lst_add_start(t_pile **begin, t_pile *lst);
 void	ft_lst_add_end(t_pile **begin, t_pile *lst);
-void	ft_stockage_pile(char **str, t_pile **begin);
+void	ft_stockage_pile(char **str, t_pile **begin, t_flag *f);
 void	ft_swap(t_pile **begin, char c, char **ret);
 void	ft_swap_all(t_pile **a, t_pile **b, char **ret);
 void	ft_push(t_pile **a, t_pile **b, char c, char **ret);

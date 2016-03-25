@@ -16,14 +16,15 @@ int	main(int ac, char **av)
 {
 	t_pile	**a;
 	t_pile	**b;
+	t_flag	*f;
 	char	*ret;
 
-
-	ft_check_error(ac, &av[1]);
+	ret = NULL;
+	f = ft_flag(&av[1]);
+	ft_check_error(ac, av, f);
 	a = (t_pile**)ft_memalloc(sizeof(t_pile*));
 	b = (t_pile**)ft_memalloc(sizeof(t_pile*));
 	ft_stockage_pile(&av[1], a);
-	ret = NULL;
 	ft_selection(a, b, &ret);
 
 	return (0);
