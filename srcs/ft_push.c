@@ -6,7 +6,7 @@
 /*   By: amineau <amineau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/22 17:36:04 by amineau           #+#    #+#             */
-/*   Updated: 2016/03/25 15:39:57 by amineau          ###   ########.fr       */
+/*   Updated: 2016/03/29 15:45:40 by amineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ void	ft_pusha(t_pile **a, t_pile **b, t_flag *f)
 		*a = *b;
 		*b = tmp;
 	}
-	ft_retour(&(f->ret), "pa");
+	//ft_retour(&(f->ret), "pa");
+	ft_putope("pa", f);
 	ft_display(a, b, f);
 }
 
@@ -38,6 +39,7 @@ void	ft_pushb(t_pile **a, t_pile **b, t_flag *f)
 		*b = *a;
 		*a = tmp;
 	}
-	ft_retour(&(f->ret), "pb");
+	//ft_retour(&(f->ret), "pb");
+	ft_putope("pb", f);
 	ft_display(a, b, f);
 }

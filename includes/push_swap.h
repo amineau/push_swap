@@ -6,13 +6,13 @@
 /*   By: amineau <amineau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/22 09:27:29 by amineau           #+#    #+#             */
-/*   Updated: 2016/03/25 19:26:24 by amineau          ###   ########.fr       */
+/*   Updated: 2016/03/29 18:24:04 by amineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
-# define FLAG "nhve"
+# define FLAG "nhved"
 # include "libft.h"
 # include <limits.h>
 
@@ -23,7 +23,7 @@ typedef struct	s_flag
 	int				v;
 	int				d;
 	int				e;
-	char			*ret;
+	int				total;
 	int				argv;
 	struct s_flag	*next;
 }				t_flag;
@@ -40,6 +40,7 @@ void	ft_exit(int er, int flag);
 t_pile	*ft_lst_new(int nb);
 int		ft_size_pile(t_pile **begin);
 void	ft_retour(char **ret, char *ope);
+void	ft_putope(char *str, t_flag *f);
 void	ft_lst_add_start(t_pile **begin, t_pile *lst);
 void	ft_lst_add_end(t_pile **begin, t_pile *lst);
 void	ft_stockage_pile(char **str, t_pile **begin, t_flag *f);

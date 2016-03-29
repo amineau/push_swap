@@ -6,26 +6,20 @@
 /*   By: amineau <amineau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/24 17:05:10 by amineau           #+#    #+#             */
-/*   Updated: 2016/03/25 17:27:15 by amineau          ###   ########.fr       */
+/*   Updated: 2016/03/29 18:24:02 by amineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		ft_cnt_word(const char *s)
+void	ft_putope(char *str, t_flag *f)
 {
-	int	i;
-	int	cnt;
-
-	i = 0;
-	cnt = 0;
-	while (s[i])
+	if (f)
 	{
-		if ((i == 0 || s[i - 1] == ' ') && s[i] != ' ')
-			cnt++;
-		i++;
+		if (f->d == 0)
+			ft_printf("%s ", str);
+		f->total++;
 	}
-	return (cnt);
 }
 
 void	ft_display(t_pile **a, t_pile **b, t_flag *f)
@@ -35,24 +29,31 @@ void	ft_display(t_pile **a, t_pile **b, t_flag *f)
 	if (f->v == 1)
 	{
 		tmp = *a;
-		ft_printf("\n*******************************\na : ");
-		while (tmp)
+
+		if (f->h == 1)
 		{
-			ft_printf("%d", tmp->nb);
-			if (tmp->next)
-				ft_printf(" ");
-			tmp = tmp->next;
+			ft_printf("*******************************");
+			ft_printf("\na : ");
+			while (tmp)
+			{
+				ft_printf("%d", tmp->nb);
+				if (tmp->next)
+					ft_printf(" | ");
+				tmp = tmp->next;
+			}
+			ft_printf("\n*******************************\n");
+			tmp = *b;
+			ft_printf("b : ");
+			while (tmp)
+			{
+				ft_printf("%d", tmp->nb);
+				if (tmp->next)
+					ft_printf(" | ");
+				tmp = tmp->next;
+			}
+			ft_printf("\n*******************************\n");
 		}
-		ft_printf("\n");
-		tmp = *b;
-		ft_printf("b : ");
-		while (tmp)
-		{
-			ft_printf("%d", tmp->nb);
-			if (tmp->next)
-				ft_printf(" ");
-			tmp = tmp->next;
-		}
-		ft_printf("\n%s\nNumber of operation : %d\n*******************************\n", f->ret, ft_cnt_word(f->ret));
+		if (f->n == 1)
+			ft_printf("Number of operation : %d\n", f->total);
 	}
 }

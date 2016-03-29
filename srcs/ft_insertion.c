@@ -6,7 +6,7 @@
 /*   By: amineau <amineau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/23 16:59:26 by amineau           #+#    #+#             */
-/*   Updated: 2016/03/25 19:03:53 by amineau          ###   ########.fr       */
+/*   Updated: 2016/03/29 18:24:00 by amineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,32 @@ int		ft_check_sort(t_pile **begin)
 	return (1);
 }
 
-void	ft_find_min(t_pile **a, t_pile **b, t_flag *f)
+int		ft_length_pile(t_pile **begin)
+{
+	t_pile	*tmp;
+	int		cnt;
+
+	cnt = 0
+	tmp = *begin;
+	while (tmp)
+	{
+		cnt++;
+		tmp = tmp->next;
+	}
+	return (cnt);
+}
+
+int		ft_pos_min(t_pile **begin)
 {
 	t_pile	*tmp;
 	int		min;
-	int		pos;
 	int		cnt;
-	int		bol;
+	int		pos;
 
+	tmp = (*begin)->next;
+	min = (*begin)->nb;
 	cnt = 1;
 	pos = 1;
-	tmp = (*a)->next;
-	min = (*a)->nb;
 	while (tmp)
 	{
 		cnt++;
@@ -48,6 +62,42 @@ void	ft_find_min(t_pile **a, t_pile **b, t_flag *f)
 		}
 		tmp = tmp->next;
 	}
+	return (pos);
+}
+
+int		ft_pos_max(t_pile **begin)
+{
+	t_pile	*tmp;
+	int		max;
+	int		cnt;
+	int		pos;
+
+	tmp = (*begin)->next;
+	max = (*begin)->nb;
+	cnt = 1;
+	pos = 1;
+	while (tmp)
+	{
+		cnt++;
+		if (tmp->nb > max)
+		{
+			pos = cnt;
+			min = tmp->nb;
+		}
+		tmp = tmp->next;
+	}
+	return (pos);
+}
+
+void	ft_find_min(t_pile **a, t_pile **b, t_flag *f)
+{
+	int		pos;
+	int		cnt;
+	int		bol;
+
+
+	cnt = ft_length_pile(a);
+	
 	bol = 1;
 	if (pos < cnt / 2)
 	{

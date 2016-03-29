@@ -6,7 +6,7 @@
 /*   By: amineau <amineau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/22 15:25:16 by amineau           #+#    #+#             */
-/*   Updated: 2016/03/25 14:30:04 by amineau          ###   ########.fr       */
+/*   Updated: 2016/03/29 14:49:28 by amineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	ft_exit(int er, int flag)
 			str = "one or more twins";
 		ft_putendl_fd("--------------------------", 2);
 		ft_putendl_fd(str, 2);
-		ft_putendl_fd("--------------------------\n", 2);
+		ft_putendl_fd("--------------------------", 2);
 	}
 	else
 		ft_putendl_fd("Error", 2);
