@@ -14,10 +14,8 @@
 
 size_t	ft_test_zero(double nb)
 {
-	int		i;
 	size_t	bit;
 
-	i = 0;
 	bit = 0;
 	while ((*(uintmax_t*)&nb & 1) == 0 && bit != 63)
 	{

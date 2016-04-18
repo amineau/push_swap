@@ -83,13 +83,11 @@ char	*ft_itoa_double(double nb, int prec, char c)
 {
 	char	*str;
 	double	tmp;
-	double	tmp2;
 	int		i;
 
 	if ((str = ft_nan_or_inf(nb, c)))
 		return (str);
 	tmp = (*(uintmax_t*)&nb >> 63 == 1) ? -nb : nb;
-	tmp2 = tmp;
 	str = (*(uintmax_t*)&nb >> 63 == 1) ? ft_strdup("-") : ft_strdup("");
 	i = ft_nbrint(&tmp);
 	while (i > 8)
@@ -97,7 +95,6 @@ char	*ft_itoa_double(double nb, int prec, char c)
 		i -= 8;
 		str = ft_strclnjoin(str, ft_integer(tmp, str, 8, 1));
 		tmp = ft_recup(ft_atof(str), nb, i);
-		tmp2 = tmp;
 		while (tmp > 10)
 			tmp /= 10;
 	}

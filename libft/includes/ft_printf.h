@@ -16,6 +16,7 @@
 # include <stdarg.h>
 # include <stdlib.h>
 # include <wchar.h>
+# include <stdint.h>
 # include "libft.h"
 
 # define TYPE "sSpdDioOfFuUxXcCbBeE"
