@@ -25,7 +25,8 @@ int	main(int ac, char **av)
 	a = (t_pile**)ft_memalloc(sizeof(t_pile*));
 	b = (t_pile**)ft_memalloc(sizeof(t_pile*));
 	ft_stockage_pile(&av[f->argv], a, f);
-	ft_selection(a, b, f);
+//	ft_selection(a, b, f);
+	ft_algo_sort(a, b, f);
 	f->v = 1;
 	ft_display(a, b, f);
 
