@@ -55,7 +55,7 @@ void	ft_rotate_all(t_pile **a, t_pile **b, t_flag *f);
 void	ft_reversea(t_pile **a, t_pile **b, t_flag *f);
 void	ft_reverseb(t_pile **a, t_pile **b, t_flag *f);
 void	ft_reverse_all(t_pile **a, t_pile **b, t_flag *f);
-void	ft_selection(t_pile **a, t_pile **b, t_flag *f);
+void	ft_selection(t_pile **a, t_pile **b, t_flag *f, int bef);
 void	ft_sort(t_pile **a, t_pile **b, t_flag *f);
 void	ft_display(t_pile **a, t_pile **b, t_flag *f);
 t_flag	*ft_flag(char **str, int ac);
