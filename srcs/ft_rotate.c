@@ -27,7 +27,6 @@ void	ft_rotatea(t_pile **a, t_pile **b, t_flag *f)
 			tmp2 = tmp2->next;
 		tmp2->next = tmp;
 	}
-	//ft_retour(&(f->ret), "ra");
 	ft_putope("ra", f);
 	ft_display(a, b, f);
 }
@@ -47,7 +46,6 @@ void	ft_rotateb(t_pile **a, t_pile **b, t_flag *f)
 			tmp2 = tmp2->next;
 		tmp2->next = tmp;
 	}
-	//ft_retour(&(f->ret), "rb");
 	ft_putope("rb", f);
 	ft_display(a, b, f);
 }
@@ -56,7 +54,6 @@ void	ft_rotate_all(t_pile **a, t_pile **b, t_flag *f)
 {
 	ft_rotatea(a, b, NULL);
 	ft_rotateb(a, b, NULL);
-	//ft_retour(&(f->ret), "rr");
 	ft_putope("rr", f);
 	ft_display(a, b, f);
 }

@@ -27,8 +27,12 @@ int	main(int ac, char **av)
 	ft_stockage_pile(&av[f->argv], a, f);
 //	ft_selection(a, b, f);
 	ft_sort(a, b, f);
-	f->v = 1;
-	ft_display(a, b, f);
 
+	if (f->n == 1 && f->v == 0)
+		ft_printf("\nNumber of operation : %d\n", f->total);
+	else if (f->v == 0)
+		ft_putchar('\n');
+	if (f->h)
+		ft_display_help();
 	return (0);
 }

@@ -19,6 +19,7 @@ void	ft_initialize_flag(t_flag *f)
 	f->h = 0;
 	f->n = 0;
 	f->v = 0;
+	f->esc = 0;
 	f->total = 0;
 }
 

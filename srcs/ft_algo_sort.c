@@ -65,8 +65,6 @@ void    ft_sort(t_pile **a, t_pile **b, t_flag *f)
     i = 0;
     tmp = *a;
     piv = ft_piv(a, &bef);
-    ft_printf("piv a : %d\n", piv);
-    ft_printf("bf = %d\n", bef);
     while (bef - i > 0)
     {
         if ((*a)->nb < piv){
@@ -76,16 +74,8 @@ void    ft_sort(t_pile **a, t_pile **b, t_flag *f)
         else
             ft_rotatea(a, b, f);
     }
-    ft_printf("\n\n\n\n");
     ft_selection(a, b, f, bef);
 }
-
-
-
-
-
-
-
 
 int     ft_check_sort(t_pile **begin)
 {
@@ -135,15 +125,56 @@ int     ft_find_min(t_pile **begin)
     }
     return (res);
 }
-/******************position du min a checker*********************/
+
+int     ft_pos_val(t_pile **begin, int val)
+{
+    t_pile  *tmp;
+    int     pos;
+
+    tmp = *begin;
+    pos = 1;
+    while (tmp->nb != val)
+    {
+        tmp = tmp->next;
+        pos++;
+    }
+    return (pos);
+}
+
 void    ft_prepa_push_min(t_pile **a, t_pile **b, t_flag *f)
 {
     int min;
 
     min = ft_find_min(a);
-    while ((*a)->nb != min)
-        ft_rotatea(a, b, f);
+    if (ft_pos_val(a, min) <= (ft_length_pile(a) + 1) / 2)
+    {
+        while ((*a)->nb != min)
+            ft_rotatea(a, b, f);
+    }
+    else
+    {
+        while ((*a)->nb != min)
+            ft_reversea(a, b, f);
+    }
 }
+
+void    ft_prepa_push_max(t_pile **a, t_pile **b, t_flag *f)
+{
+    int max;
+
+    max = ft_find_max(b);
+    if (ft_pos_val(b, max) <= (ft_length_pile(b) + 1) / 2)
+    {
+        while ((*b)->nb != max)
+            ft_rotateb(a, b, f);
+    }
+    else
+    {
+        while ((*b)->nb != max)
+            ft_reverseb(a, b, f);
+    }
+}
+
 
 void    ft_selection(t_pile **a, t_pile **b, t_flag *f, int bef)
 {
@@ -155,8 +186,16 @@ void    ft_selection(t_pile **a, t_pile **b, t_flag *f, int bef)
         
         ft_prepa_push_min(a, b, f);
         if (!ft_check_sort(a))
+        {
             ft_pushb(a, b, f);
+            i++;
+        }
     }
-   // while (bef - i++ > 0)
-     //   ft_pusha(a, b, f);
+    while (i-- > 0)
+        ft_pusha(a, b, f);
+    while (*b)
+    {
+        ft_prepa_push_max(a, b, f);
+        ft_pusha(a, b, f);
+    }
 }

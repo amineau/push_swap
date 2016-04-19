@@ -12,84 +12,7 @@
 
 #include "push_swap.h"
 
-int		ft_check_sort(t_pile **begin)
-{
-	t_pile	*tmp;
-
-	tmp = *begin;
-	while (tmp->next)
-	{
-		if (tmp->nb > tmp->next->nb)
-			return (0);
-		tmp = tmp->next;
-	}
-	return (1);
-}
-
-int		ft_length_pile(t_pile **begin)
-{
-	t_pile	*tmp;
-	int		cnt;
-
-	cnt = 0
-	tmp = *begin;
-	while (tmp)
-	{
-		cnt++;
-		tmp = tmp->next;
-	}
-	return (cnt);
-}
-
-int		ft_pos_min(t_pile **begin)
-{
-	t_pile	*tmp;
-	int		min;
-	int		cnt;
-	int		pos;
-
-	tmp = (*begin)->next;
-	min = (*begin)->nb;
-	cnt = 1;
-	pos = 1;
-	while (tmp)
-	{
-		cnt++;
-		if (tmp->nb < min)
-		{
-			pos = cnt;
-			min = tmp->nb;
-		}
-		tmp = tmp->next;
-	}
-	return (pos);
-}
-
-int		ft_pos_max(t_pile **begin)
-{
-	t_pile	*tmp;
-	int		max;
-	int		cnt;
-	int		pos;
-
-	tmp = (*begin)->next;
-	max = (*begin)->nb;
-	cnt = 1;
-	pos = 1;
-	while (tmp)
-	{
-		cnt++;
-		if (tmp->nb > max)
-		{
-			pos = cnt;
-			min = tmp->nb;
-		}
-		tmp = tmp->next;
-	}
-	return (pos);
-}
-
-void	ft_find_min(t_pile **a, t_pile **b, t_flag *f)
+void	ft_prepa_push_sort(t_pile **a, t_pile **b, t_flag *f)
 {
 	int		pos;
 	int		cnt;
@@ -125,7 +48,7 @@ void	ft_find_min(t_pile **a, t_pile **b, t_flag *f)
 	}
 }
 
-void	ft_selection(t_pile **a, t_pile **b, t_flag *f)
+void	ft_selection_short(t_pile **a, t_pile **b, t_flag *f)
 {
 	while (!ft_check_sort(a))
 	{

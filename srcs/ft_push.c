@@ -23,7 +23,6 @@ void	ft_pusha(t_pile **a, t_pile **b, t_flag *f)
 		*a = *b;
 		*b = tmp;
 	}
-	//ft_retour(&(f->ret), "pa");
 	ft_putope("pa", f);
 	ft_display(a, b, f);
 }
@@ -39,7 +38,6 @@ void	ft_pushb(t_pile **a, t_pile **b, t_flag *f)
 		*b = *a;
 		*a = tmp;
 	}
-	//ft_retour(&(f->ret), "pb");
 	ft_putope("pb", f);
 	ft_display(a, b, f);
 }

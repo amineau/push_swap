@@ -23,6 +23,7 @@ typedef struct	s_flag
 	int				v;
 	int				d;
 	int				e;
+	int				esc;
 	int				total;
 	int				argv;
 	struct s_flag	*next;
@@ -38,12 +39,13 @@ void	ft_check_error(char **str, t_flag *f);
 void	ft_check_double(t_pile **lst, t_flag *f);
 void	ft_exit(int er, int flag);
 t_pile	*ft_lst_new(int nb);
-int		ft_size_pile(t_pile **begin);
+t_flag	*ft_flag(char **str, int ac);
 void	ft_retour(char **ret, char *ope);
 void	ft_putope(char *str, t_flag *f);
 void	ft_lst_add_start(t_pile **begin, t_pile *lst);
 void	ft_lst_add_end(t_pile **begin, t_pile *lst);
 void	ft_stockage_pile(char **str, t_pile **begin, t_flag *f);
+
 void	ft_swapa(t_pile **a, t_pile **b, t_flag *f);
 void	ft_swapb(t_pile **a, t_pile **b, t_flag *f);
 void	ft_swap_all(t_pile **a, t_pile **b, t_flag *f);
@@ -55,9 +57,13 @@ void	ft_rotate_all(t_pile **a, t_pile **b, t_flag *f);
 void	ft_reversea(t_pile **a, t_pile **b, t_flag *f);
 void	ft_reverseb(t_pile **a, t_pile **b, t_flag *f);
 void	ft_reverse_all(t_pile **a, t_pile **b, t_flag *f);
+
 void	ft_selection(t_pile **a, t_pile **b, t_flag *f, int bef);
 void	ft_sort(t_pile **a, t_pile **b, t_flag *f);
+int		ft_length_pile(t_pile **begin);
+int     ft_check_sort(t_pile **begin);
 void	ft_display(t_pile **a, t_pile **b, t_flag *f);
-t_flag	*ft_flag(char **str, int ac);
+void	ft_display_help(void);
+
 
 #endif
