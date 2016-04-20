@@ -6,7 +6,7 @@
 /*   By: amineau <amineau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/22 09:25:25 by amineau           #+#    #+#             */
-/*   Updated: 2016/04/20 23:37:10 by amineau          ###   ########.fr       */
+/*   Updated: 2016/04/21 00:15:44 by amineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ int	main(int ac, char **av)
 	t_flag	*f;
 
 	f = ft_flag(&av[1], ac);
-	if (f->argv == ac)
-		ft_exit(1, f->e);
 	ft_check_error(&av[f->argv], f);
 	a = (t_pile**)ft_memalloc(sizeof(t_pile*));
 	b = (t_pile**)ft_memalloc(sizeof(t_pile*));

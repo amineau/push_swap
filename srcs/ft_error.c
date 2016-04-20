@@ -6,7 +6,7 @@
 /*   By: amineau <amineau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/22 15:25:16 by amineau           #+#    #+#             */
-/*   Updated: 2016/03/29 14:49:28 by amineau          ###   ########.fr       */
+/*   Updated: 2016/04/21 00:29:32 by amineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ void	ft_exit(int er, int flag)
 
 	if (flag == 1)
 	{
-		if (er == 1)
-			str = "arguments missing";
 		if (er == 2)
 			str = "arguments not decimals";
 		if (er == 3)
@@ -44,9 +42,13 @@ void	ft_check_error(char **str, t_flag *f)
 	while (str[i])
 	{
 		j = 0;
+		if (str[i][0] == '-' && !str[i][1])
+			ft_exit(2, f->e);
 		while (str[i][j])
 		{
-			if (!ft_isdigit(str[i][j]) && str[i][j] != '-')
+			if (j == 0 && str[i][j] != '-' && !ft_isdigit(str[i][j]))
+				ft_exit(2, f->e);
+			else if (j != 0 && !ft_isdigit(str[i][j]))
 				ft_exit(2, f->e);
 			j++;
 		}

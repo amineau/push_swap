@@ -6,7 +6,7 @@
 /*   By: amineau <amineau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/24 17:05:10 by amineau           #+#    #+#             */
-/*   Updated: 2016/04/20 23:59:13 by amineau          ###   ########.fr       */
+/*   Updated: 2016/04/21 00:39:15 by amineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,13 @@ void	ft_putope(char *str, t_flag *f)
 
 void	ft_pile_show(t_pile *tmp)
 {
-	ft_printf("%d", tmp->nb);
-	if (tmp->next)
-		ft_printf(" | ");
-	tmp = tmp->next;
+	while (tmp)
+	{
+		ft_printf("%d", tmp->nb);
+		if (tmp->next)
+			ft_printf(" | ");
+		tmp = tmp->next;
+	}
 }
 
 void	ft_display(t_pile **a, t_pile **b, t_flag *f)
@@ -46,13 +49,11 @@ void	ft_display(t_pile **a, t_pile **b, t_flag *f)
 	{
 		ft_printf("\n*******************************");
 		ft_printf("\na : ");
-		while (tmp)
-			ft_pile_show(tmp);
+		ft_pile_show(tmp);
 		ft_printf("\n-------------------------------\n");
 		tmp = *b;
 		ft_printf("b : ");
-		while (tmp)
-			ft_pile_show(tmp);
+		ft_pile_show(tmp);
 		ft_printf("\n*******************************\n");
 		if (f->n == 1)
 			ft_printf("Number of operation : %d\n\n", f->total);
