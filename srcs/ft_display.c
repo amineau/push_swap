@@ -6,7 +6,7 @@
 /*   By: amineau <amineau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/24 17:05:10 by amineau           #+#    #+#             */
-/*   Updated: 2016/03/29 18:24:02 by amineau          ###   ########.fr       */
+/*   Updated: 2016/04/20 23:59:13 by amineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,21 @@ void	ft_putope(char *str, t_flag *f)
 			ft_putchar(' ');
 		else
 			f->esc = 1;
-		if (f->d == 0)
-			ft_printf("%s", str);
+		if (f->c == 1)
+			ft_printf("\033[32m");
+		ft_printf("%s", str);
+		if (f->c == 1)
+			ft_printf("\033[00m");
 		f->total++;
 	}
+}
+
+void	ft_pile_show(t_pile *tmp)
+{
+	ft_printf("%d", tmp->nb);
+	if (tmp->next)
+		ft_printf(" | ");
+	tmp = tmp->next;
 }
 
 void	ft_display(t_pile **a, t_pile **b, t_flag *f)
@@ -33,35 +44,34 @@ void	ft_display(t_pile **a, t_pile **b, t_flag *f)
 	tmp = *a;
 	if (f->v == 1)
 	{
-			ft_printf("\n*******************************");
-			ft_printf("\na : ");
-			while (tmp)
-			{
-				ft_printf("%d", tmp->nb);
-				if (tmp->next)
-					ft_printf(" | ");
-				tmp = tmp->next;
-			}
-			ft_printf("\n-------------------------------\n");
-			tmp = *b;
-			ft_printf("b : ");
-			while (tmp)
-			{
-				ft_printf("%d", tmp->nb);
-				if (tmp->next)
-					ft_printf(" | ");
-				tmp = tmp->next;
-			}
-			ft_printf("\n*******************************\n");
-			if (f->n == 1)
-				ft_printf("Number of operation : %d\n\n", f->total);
+		ft_printf("\n*******************************");
+		ft_printf("\na : ");
+		while (tmp)
+			ft_pile_show(tmp);
+		ft_printf("\n-------------------------------\n");
+		tmp = *b;
+		ft_printf("b : ");
+		while (tmp)
+			ft_pile_show(tmp);
+		ft_printf("\n*******************************\n");
+		if (f->n == 1)
+			ft_printf("Number of operation : %d\n\n", f->total);
 	}
 }
 
 void	ft_display_help(void)
 {
-	ft_printf("\n\t-h\tShows help.\n\t-n\tShows the number of operations. \
-If it is combined with -v, shows the number of operations has every \
-iteration.\n\t-v\tShows the state of piles has every iteration.\n\t-e\t\
-If the function returns an error, describes the error.\n\t-d\t?? No se ??\n");
+	char	*h;
+	char	*n;
+	char	*v;
+	char	*e;
+	char	*c;
+
+	h = "Shows help.";
+	n = "Shows the number of operations.";
+	v = "Shows the state of piles has every iteration.";
+	e = "If the function returns an error, describes the error.";
+	c = "Shows the operations in color.";
+	ft_printf("\n\t-h\t%s\n\t-n\t%s\n\t-v\t%s\n\t-e\t%s\n\t-c\t%s\n",
+			h, n, c, e, c);
 }

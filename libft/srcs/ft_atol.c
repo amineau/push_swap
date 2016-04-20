@@ -6,7 +6,7 @@
 /*   By: amineau <amineau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/22 14:01:12 by amineau           #+#    #+#             */
-/*   Updated: 2016/03/22 14:02:23 by amineau          ###   ########.fr       */
+/*   Updated: 2016/04/21 00:03:01 by amineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 long	ft_atol(const char *str)
 {
 	int		i;
-	int 	neg;
+	int		neg;
 	long	nb;
 
 	i = 0;

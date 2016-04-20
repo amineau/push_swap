@@ -6,7 +6,7 @@
 #    By: amineau <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/23 15:32:27 by amineau           #+#    #+#              #
-#    Updated: 2016/03/29 18:23:54 by amineau          ###   ########.fr        #
+#    Updated: 2016/04/20 23:36:17 by amineau          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ CC = gcc
 
 SRCS = main.c ft_error.c ft_list.c ft_swap.c ft_push.c ft_rotate.c ft_reverse.c\
 		ft_stockage.c ft_retour.c ft_display.c ft_insertion.c ft_flag.c \
-		ft_algo_sort.c
+		ft_algo_sort.c ft_length.c
 
 LIBPATH = libft
 SPATH = srcs
@@ -23,7 +23,7 @@ OPATH = objs
 HPATH = includes
 LFTHPATH = $(LIBPATH)/includes
 
-CFLAGS = -I./$(HPATH) -I./$(LFTHPATH)
+CFLAGS = -Wall -Werror -Wextra -I./$(HPATH) -I./$(LFTHPATH)
 LIBS =-L./$(LIBPATH) -lprt
 
 SRC = $(addprefix $(SPATH)/,$(SRCS))

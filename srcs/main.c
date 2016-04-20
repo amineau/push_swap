@@ -6,7 +6,7 @@
 /*   By: amineau <amineau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/22 09:25:25 by amineau           #+#    #+#             */
-/*   Updated: 2016/03/29 18:24:06 by amineau          ###   ########.fr       */
+/*   Updated: 2016/04/20 23:37:10 by amineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,15 @@ int	main(int ac, char **av)
 
 	f = ft_flag(&av[1], ac);
 	if (f->argv == ac)
-		exit(1);
+		ft_exit(1, f->e);
 	ft_check_error(&av[f->argv], f);
 	a = (t_pile**)ft_memalloc(sizeof(t_pile*));
 	b = (t_pile**)ft_memalloc(sizeof(t_pile*));
 	ft_stockage_pile(&av[f->argv], a, f);
-	if (ft_length_pile(a) < 100)
-	{
-		ft_sort_by_end(a, b, f);
+	if (ft_length_pile(a) < 50)
 		ft_selection_short(a, b, f);
-	}
 	else
 		ft_sort(a, b, f);
-
 	if (f->n == 1 && f->v == 0)
 		ft_printf("\nNumber of operation : %d\n", f->total);
 	else if (f->v == 0)
