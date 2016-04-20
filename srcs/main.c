@@ -25,8 +25,13 @@ int	main(int ac, char **av)
 	a = (t_pile**)ft_memalloc(sizeof(t_pile*));
 	b = (t_pile**)ft_memalloc(sizeof(t_pile*));
 	ft_stockage_pile(&av[f->argv], a, f);
-//	ft_selection(a, b, f);
-	ft_sort(a, b, f);
+	if (ft_length_pile(a) < 100)
+	{
+		ft_sort_by_end(a, b, f);
+		ft_selection_short(a, b, f);
+	}
+	else
+		ft_sort(a, b, f);
 
 	if (f->n == 1 && f->v == 0)
 		ft_printf("\nNumber of operation : %d\n", f->total);

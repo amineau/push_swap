@@ -58,10 +58,16 @@ void	ft_reversea(t_pile **a, t_pile **b, t_flag *f);
 void	ft_reverseb(t_pile **a, t_pile **b, t_flag *f);
 void	ft_reverse_all(t_pile **a, t_pile **b, t_flag *f);
 
+void	ft_selection_short(t_pile **a, t_pile **b, t_flag *f);
 void	ft_selection(t_pile **a, t_pile **b, t_flag *f, int bef);
 void	ft_sort(t_pile **a, t_pile **b, t_flag *f);
+void	ft_sort_by_end(t_pile **a, t_pile **b, t_flag *f);
+void    ft_prepa_push(t_pile **a, t_pile **b, t_flag *f, char *cs);
 int		ft_length_pile(t_pile **begin);
 int     ft_check_sort(t_pile **begin);
+int     ft_find_min(t_pile **begin);
+int     ft_find_max(t_pile **begin);
+int     ft_pos_val(t_pile **begin, int val);
 void	ft_display(t_pile **a, t_pile **b, t_flag *f);
 void	ft_display_help(void);
 

@@ -14,8 +14,8 @@ NAME=push_swap
 CC = gcc
 
 SRCS = main.c ft_error.c ft_list.c ft_swap.c ft_push.c ft_rotate.c ft_reverse.c\
-		ft_stockage.c ft_retour.c ft_display.c \
-		ft_flag.c ft_algo_sort.c
+		ft_stockage.c ft_retour.c ft_display.c ft_insertion.c ft_flag.c \
+		ft_algo_sort.c
 
 LIBPATH = libft
 SPATH = srcs
